@@ -1,4 +1,4 @@
-#FHEW-ntt library
+# FHEW-ntt library
 
 ## basic information on FHEW-ntt library
 FHEW-ntt is an NTT-based version FHEW released here: https://github.com/lducas/FHEW. 
