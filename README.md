@@ -16,4 +16,4 @@ FHEW-ntt-256 is an NTT-based FHEW with 256-bit security level, read ./FHEW-ntt-2
 
 
 ## Other remarks
-FHEW-ntt-medium and  FHEW-ntt-128AP are identical to FHEW-ntt-128, and is kepted for historical reasons.  'medium' suggests the security level is medium if compared with the 80-bit FHEW-ntt. 'AP' suggests the external product is asymmetric, and is performed between a RLWE ciphertext and a RGSW ciphertext for better computational efficiency.
+FHEW-ntt-medium and  FHEW-ntt-128AP are identical to FHEW-ntt-128, and is kept for historical reasons.  'medium' suggests the security level is medium if compared with the 80-bit FHEW-ntt. 'AP' suggests the external product is asymmetric, and is performed between a RLWE ciphertext and a RGSW ciphertext for better computational efficiency.
