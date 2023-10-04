@@ -1,0 +1,204 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 73.46    375.74   375.74                             _mcount_private
+ 13.21    443.28    67.54                             __fentry__
+  3.79    462.65    19.37 4772733820     0.00     0.00  LWE::ModMulQ(int, int)
+  3.47    480.42    17.77   535700     0.00     0.00  NTTforward(int*, int const*)
+  1.68    489.01     8.59 3653765120     0.00     0.00  LWE::ModSubQ(int, int)
+  1.60    497.21     8.20 4038031234     0.00     0.00  LWE::ModAddQ(int, int)
+  1.24    503.53     6.32 180406726     0.00     0.00  Sample(Distrib const&)
+  1.15    509.43     5.90   177926     0.00     0.00  NTTbackward(int*, int const*)
+  0.21    510.52     1.09    22000     0.00     0.00  FHEW::FHEWencrypt(int (*) [2][1024], int*, int)
+  0.12    511.13     0.61        1     0.61     0.62  LWE::SwitchingKeyGen(LWE::CipherTextQ* (*) [25][7], int const*, int const*)
+  0.03    511.29     0.16                             rand
+  0.03    511.42     0.13      962     0.00     0.00  FHEW::AddToACC(int (*) [1024], int (*) [2][1024])
+  0.00    511.44     0.02        1     0.02     0.02  LWE::KeySwitch(LWE::CipherTextQ*, LWE::CipherTextQ* const (*) [25][7], LWE::CipherTextQN const&)
+  0.00    511.46     0.02                             malloc
+  0.00    511.46     0.00        6     0.00     0.00  __gcc_deregister_frame
+  0.00    511.46     0.00        2     0.00     0.00  LWE::Encrypt(LWE::CipherText*, int const*, int)
+  0.00    511.46     0.00        1     0.00     0.00  NTTsetup()
+  0.00    511.46     0.00        1     0.00     0.00  LWE::KeyGen(int*)
+  0.00    511.46     0.00        1     0.00     0.00  LWE::Decrypt(int const*, LWE::CipherText const&)
+  0.00    511.46     0.00        1     0.00     0.00  LWE::KeyGenN(int*)
+  0.00    511.46     0.00        1     0.00     0.00  LWE::ModSwitch(LWE::CipherText*, LWE::CipherTextQ const&)
+  0.00    511.46     0.00        1     0.00     1.09  FHEW::MemberTest(int*, int (*) [1024])
+  0.00    511.46     0.00        1     0.00     0.00  FHEW::InitializeACC(int (*) [1024], int)
+  0.00    511.46     0.00        1     0.00     0.00  FHEW::Setup()
+  0.00    511.46     0.00        1     0.00    66.91  FHEW::KeyGen(FHEW::EvalKey*, int const*)
+  0.00    511.46     0.00        1     0.00     0.00  FHEW::HomGate(LWE::CipherText*, BinGate, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&)
+  0.00    511.46     0.00        1     0.00     1.09  FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&)
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 0.00% of 511.46 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     73.5  375.74    0.00                 _mcount_private [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     13.3    0.00   68.00                 main [2]
+                0.00   66.91       1/1           FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+                0.00    1.09       1/1           FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [13]
+                0.00    0.00       1/1           FHEW::Setup() [20]
+                0.00    0.00       1/1           LWE::KeyGen(int*) [21]
+                0.00    0.00       2/2           LWE::Encrypt(LWE::CipherText*, int const*, int) [24]
+                0.00    0.00       6/6           __gcc_deregister_frame [543]
+                0.00    0.00       1/1           LWE::Decrypt(int const*, LWE::CipherText const&) [544]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     13.2   67.54    0.00                 __fentry__ [3]
+-----------------------------------------------
+                0.00   66.91       1/1           main [2]
+[4]     13.1    0.00   66.91       1         FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+                1.09   65.21   22000/22000       FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+                0.61    0.01       1/1           LWE::SwitchingKeyGen(LWE::CipherTextQ* (*) [25][7], int const*, int const*) [15]
+                0.00    0.00       1/535700      NTTforward(int*, int const*) [6]
+                0.00    0.00       1/1           LWE::KeyGenN(int*) [22]
+-----------------------------------------------
+                1.09   65.21   22000/22000       FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+[5]     13.0    1.09   65.21   22000         FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+               17.51   25.01  528000/535700      NTTforward(int*, int const*) [6]
+                5.84    9.07  176000/177926      NTTbackward(int*, int const*) [8]
+                6.31    0.00 180224000/180406726     Sample(Distrib const&) [11]
+                0.73    0.00 360624000/4038031234     LWE::ModAddQ(int, int) [10]
+                0.73    0.00 180400000/4772733820     LWE::ModMulQ(int, int) [7]
+-----------------------------------------------
+                0.00    0.00       1/535700      FHEW::Setup() [20]
+                0.00    0.00       1/535700      FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+                0.00    0.00       2/535700      FHEW::InitializeACC(int (*) [1024], int) [19]
+                0.26    0.36    7696/535700      FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+               17.51   25.01  528000/535700      FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+[6]      8.4   17.77   25.38  535700         NTTforward(int*, int const*) [6]
+               13.36    0.00 3291340800/4772733820     LWE::ModMulQ(int, int) [7]
+                6.45    0.00 2742784000/3653765120     LWE::ModSubQ(int, int) [9]
+                5.57    0.00 2742784000/4038031234     LWE::ModAddQ(int, int) [10]
+-----------------------------------------------
+                0.00    0.00       1/4772733820     FHEW::InitializeACC(int (*) [1024], int) [19]
+                0.00    0.00    3071/4772733820     FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.00    0.00    4092/4772733820     NTTsetup() [23]
+                0.10    0.00 25612288/4772733820     FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+                0.73    0.00 180400000/4772733820     FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+                5.18    0.00 1275373568/4772733820     NTTbackward(int*, int const*) [8]
+               13.36    0.00 3291340800/4772733820     NTTforward(int*, int const*) [6]
+[7]      3.8   19.37    0.00 4772733820         LWE::ModMulQ(int, int) [7]
+-----------------------------------------------
+                0.00    0.00       2/177926      FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.06    0.10    1924/177926      FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+                5.84    9.07  176000/177926      FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+[8]      2.9    5.90    9.17  177926         NTTbackward(int*, int const*) [8]
+                5.18    0.00 1275373568/4772733820     LWE::ModMulQ(int, int) [7]
+                2.14    0.00 910981120/3653765120     LWE::ModSubQ(int, int) [9]
+                1.85    0.00 910981120/4038031234     LWE::ModAddQ(int, int) [10]
+-----------------------------------------------
+                2.14    0.00 910981120/3653765120     NTTbackward(int*, int const*) [8]
+                6.45    0.00 2742784000/3653765120     NTTforward(int*, int const*) [6]
+[9]      1.7    8.59    0.00 3653765120         LWE::ModSubQ(int, int) [9]
+-----------------------------------------------
+                0.00    0.00       1/4038031234     FHEW::InitializeACC(int (*) [1024], int) [19]
+                0.00    0.00       1/4038031234     FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.05    0.00 23642112/4038031234     FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+                0.73    0.00 360624000/4038031234     FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+                1.85    0.00 910981120/4038031234     NTTbackward(int*, int const*) [8]
+                5.57    0.00 2742784000/4038031234     NTTforward(int*, int const*) [6]
+[10]     1.6    8.20    0.00 4038031234         LWE::ModAddQ(int, int) [10]
+-----------------------------------------------
+                0.00    0.00       2/180406726     LWE::Encrypt(LWE::CipherText*, int const*, int) [24]
+                0.00    0.00    1024/180406726     LWE::KeyGenN(int*) [22]
+                0.00    0.00    2500/180406726     LWE::KeyGen(int*) [21]
+                0.01    0.00  179200/180406726     LWE::SwitchingKeyGen(LWE::CipherTextQ* (*) [25][7], int const*, int const*) [15]
+                6.31    0.00 180224000/180406726     FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [5]
+[11]     1.2    6.32    0.00 180406726         Sample(Distrib const&) [11]
+-----------------------------------------------
+                                   1             FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.00    1.09       1/1           FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [13]
+[12]     0.2    0.00    1.09       1+1       FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.13    0.93     962/962         FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+                0.02    0.00       1/1           LWE::KeySwitch(LWE::CipherTextQ*, LWE::CipherTextQ* const (*) [25][7], LWE::CipherTextQN const&) [18]
+                0.00    0.00       2/177926      NTTbackward(int*, int const*) [8]
+                0.00    0.00       1/1           FHEW::InitializeACC(int (*) [1024], int) [19]
+                0.00    0.00    3071/4772733820     LWE::ModMulQ(int, int) [7]
+                0.00    0.00       1/4038031234     LWE::ModAddQ(int, int) [10]
+                0.00    0.00       1/1           LWE::ModSwitch(LWE::CipherText*, LWE::CipherTextQ const&) [545]
+                                   1             FHEW::MemberTest(int*, int (*) [1024]) [12]
+-----------------------------------------------
+                0.00    1.09       1/1           main [2]
+[13]     0.2    0.00    1.09       1         FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [13]
+                0.00    1.09       1/1           FHEW::MemberTest(int*, int (*) [1024]) [12]
+                0.00    0.00       1/1           FHEW::HomGate(LWE::CipherText*, BinGate, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [546]
+-----------------------------------------------
+                0.13    0.93     962/962         FHEW::MemberTest(int*, int (*) [1024]) [12]
+[14]     0.2    0.13    0.93     962         FHEW::AddToACC(int (*) [1024], int (*) [2][1024]) [14]
+                0.26    0.36    7696/535700      NTTforward(int*, int const*) [6]
+                0.06    0.10    1924/177926      NTTbackward(int*, int const*) [8]
+                0.10    0.00 25612288/4772733820     LWE::ModMulQ(int, int) [7]
+                0.05    0.00 23642112/4038031234     LWE::ModAddQ(int, int) [10]
+-----------------------------------------------
+                0.61    0.01       1/1           FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+[15]     0.1    0.61    0.01       1         LWE::SwitchingKeyGen(LWE::CipherTextQ* (*) [25][7], int const*, int const*) [15]
+                0.01    0.00  179200/180406726     Sample(Distrib const&) [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     0.0    0.16    0.00                 rand [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[17]     0.0    0.02    0.00                 malloc [17]
+-----------------------------------------------
+                0.02    0.00       1/1           FHEW::MemberTest(int*, int (*) [1024]) [12]
+[18]     0.0    0.02    0.00       1         LWE::KeySwitch(LWE::CipherTextQ*, LWE::CipherTextQ* const (*) [25][7], LWE::CipherTextQN const&) [18]
+-----------------------------------------------
+                0.00    0.00       1/1           FHEW::MemberTest(int*, int (*) [1024]) [12]
+[19]     0.0    0.00    0.00       1         FHEW::InitializeACC(int (*) [1024], int) [19]
+                0.00    0.00       2/535700      NTTforward(int*, int const*) [6]
+                0.00    0.00       1/4772733820     LWE::ModMulQ(int, int) [7]
+                0.00    0.00       1/4038031234     LWE::ModAddQ(int, int) [10]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[20]     0.0    0.00    0.00       1         FHEW::Setup() [20]
+                0.00    0.00       1/535700      NTTforward(int*, int const*) [6]
+                0.00    0.00       1/1           NTTsetup() [23]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[21]     0.0    0.00    0.00       1         LWE::KeyGen(int*) [21]
+                0.00    0.00    2500/180406726     Sample(Distrib const&) [11]
+-----------------------------------------------
+                0.00    0.00       1/1           FHEW::KeyGen(FHEW::EvalKey*, int const*) [4]
+[22]     0.0    0.00    0.00       1         LWE::KeyGenN(int*) [22]
+                0.00    0.00    1024/180406726     Sample(Distrib const&) [11]
+-----------------------------------------------
+                0.00    0.00       1/1           FHEW::Setup() [20]
+[23]     0.0    0.00    0.00       1         NTTsetup() [23]
+                0.00    0.00    4092/4772733820     LWE::ModMulQ(int, int) [7]
+-----------------------------------------------
+                0.00    0.00       2/2           main [2]
+[24]     0.0    0.00    0.00       2         LWE::Encrypt(LWE::CipherText*, int const*, int) [24]
+                0.00    0.00       2/180406726     Sample(Distrib const&) [11]
+-----------------------------------------------
+                0.00    0.00       6/6           main [2]
+[543]    0.0    0.00    0.00       6         __gcc_deregister_frame [543]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[544]    0.0    0.00    0.00       1         LWE::Decrypt(int const*, LWE::CipherText const&) [544]
+-----------------------------------------------
+                0.00    0.00       1/1           FHEW::MemberTest(int*, int (*) [1024]) [12]
+[545]    0.0    0.00    0.00       1         LWE::ModSwitch(LWE::CipherText*, LWE::CipherTextQ const&) [545]
+-----------------------------------------------
+                0.00    0.00       1/1           FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [13]
+[546]    0.0    0.00    0.00       1         FHEW::HomGate(LWE::CipherText*, BinGate, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&) [546]
+-----------------------------------------------
+
+Index by function name
+
+   [6] NTTforward(int*, int const*) [10] LWE::ModAddQ(int, int) [4] FHEW::KeyGen(FHEW::EvalKey*, int const*)
+   [8] NTTbackward(int*, int const*) [7] LWE::ModMulQ(int, int) [546] FHEW::HomGate(LWE::CipherText*, BinGate, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&)
+  [11] Sample(Distrib const&)  [9] LWE::ModSubQ(int, int) [13] FHEW::HomNAND(LWE::CipherText*, FHEW::EvalKey const&, LWE::CipherText const&, LWE::CipherText const&)
+  [23] NTTsetup()             [18] LWE::KeySwitch(LWE::CipherTextQ*, LWE::CipherTextQ* const (*) [25][7], LWE::CipherTextQN const&) [14] FHEW::AddToACC(int (*) [1024], int (*) [2][1024])
+  [15] LWE::SwitchingKeyGen(LWE::CipherTextQ* (*) [25][7], int const*, int const*) [545] LWE::ModSwitch(LWE::CipherText*, LWE::CipherTextQ const&) [3] __fentry__
+  [21] LWE::KeyGen(int*)      [12] FHEW::MemberTest(int*, int (*) [1024]) [543] __gcc_deregister_frame
+ [544] LWE::Decrypt(int const*, LWE::CipherText const&) [5] FHEW::FHEWencrypt(int (*) [2][1024], int*, int) [1] _mcount_private
+  [24] LWE::Encrypt(LWE::CipherText*, int const*, int) [19] FHEW::InitializeACC(int (*) [1024], int) [17] malloc
+  [22] LWE::KeyGenN(int*)     [20] FHEW::Setup()          [16] rand
